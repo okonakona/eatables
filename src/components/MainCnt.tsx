@@ -1,6 +1,6 @@
 import FoodList from "./FoodList"
 
-export default function () {
+export default function MainCnt () {
     return (
         <main>
             <ul>

@@ -1,12 +1,12 @@
-
+import Link from "next/link"
 
 export default function HeaderList (){
     return(
         <div>
             <ul>
-                <li><a href="/">おやつリクエスト</a></li>
-                <li><a href="/">ご飯アンケート</a></li>
-                <li><a href="/">食べたもの履歴</a></li>
+                <li><Link href="/">おやつリクエスト</Link></li>
+                <li><Link href="/">ご飯アンケート</Link></li>
+                <li><Link href="/">食べたもの履歴</Link></li>
             </ul>
         </div>
     )
