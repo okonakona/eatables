@@ -1,12 +1,22 @@
-import Link from "next/link"
+import Link from "next/link";
+import Image from "next/image";
+import HeaderList from "@/components/HeaderList";
+import MainCnt from "@/components/MainCnt";
 
 
-export default function Page(){
+const ParentTop = () => {
     return(
-        <section>
-            <h1>child</h1>
-            <p><Link href="/">戻る</Link></p>
+        <section className="m-7">
+            <header>
+                <h1>child</h1>
+                <HeaderList /> 
+            </header>
+            <MainCnt />
+            <footer className="bg-white bottom-0 left-0 fixed min-w-screen h-17 text-center text-[15px]/17">
+                <Link href="/">戻る</Link>
+            </footer>
         </section>
-
     )
 }
+
+export default ParentTop;

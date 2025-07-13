@@ -1,18 +1,20 @@
 import Link from "next/link";
-import HeaderBox from "@/components/HeaderBox";
+import HeaderList from "@/components/HeaderList";
 import MainCnt from "@/components/MainCnt";
 
 const ParentTop = () => {
     return (
-        <>
+        <section className="m-7">
             <header>
-                <h1>トップページ</h1>
-                <HeaderBox />
+                <h1 className="custom-border">トップページ</h1>
+                <HeaderList />
             </header>
             <MainCnt />
-            <p><Link href="/">戻る</Link></p>
+            <footer className="bg-white bottom-0 left-0 fixed min-w-screen h-17 text-center text-[15px]/17">
+                <Link href="/parent/addItem">食品を追加</Link>
+            </footer>
 
-        </>
+        </section>
     );
 };
 
