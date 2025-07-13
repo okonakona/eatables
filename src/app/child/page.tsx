@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 import HeaderList from "@/components/HeaderList";
 import MainCnt from "@/components/MainCnt";
 
