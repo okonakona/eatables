@@ -6,7 +6,7 @@ const ParentTop = () => {
     return (
         <section className="m-7">
             <header>
-                <h1 className="custom-border">トップページ</h1>
+                <h1 className="custom-border my-7">トップページ</h1>
                 <HeaderList />
             </header>
             <MainCnt />
