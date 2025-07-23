@@ -20,10 +20,6 @@ export default function ItemDetail({ id }: { id: string }) {
     const router = useRouter();
     const itemId = Number(id);
     const item = mockItems.find((i) => i.id === itemId);
-    if (!item) {
-        return <div>アイテムが見つかりませんでした</div>;
-    }
-    const imageSrc = `/${item.category}.svg`;
 
     const [rating, setRating] = useState(0);
 
@@ -32,6 +28,12 @@ export default function ItemDetail({ id }: { id: string }) {
           router.push('/child/'); // IDが無効なら戻す
         }
     }, [item, router]);
+    
+    if (!item) {
+        return <div>アイテムが見つかりませんでした</div>;
+    }
+    const imageSrc = `/${item.category}.svg`;
+
 
     const handleSubmit = () => {
         const eatenItems = JSON.parse(localStorage.getItem('eatenItems') || '[]');
