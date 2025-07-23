@@ -7,7 +7,6 @@ import { useState,useEffect } from "react";
 import RatingStars from "@/components/RatingStars";
 import { FoodItem } from "@/app/types/item";
 
-
 const mockItems: FoodItem[] = [
     { id: 1, name: "トマト", category: "vegetable", isPriority: false, message:"野菜室開けて右" },
     { id: 2, name: "チーズ", category: "milk", isPriority: true, message:"冷蔵庫開けてすぐ右にあるよ" },
@@ -15,14 +14,14 @@ const mockItems: FoodItem[] = [
     { id: 4, name: "アイス", category: "snack", isPriority: false, message:"冷凍庫の中" },
 ];
 
-
-type PageProps = {
+interface Props {
     params: {
         id: string;
     };
-};
+}
 
-export default function ItemDetail ({params}: PageProps) {
+
+export default function ItemDetail ({params}: Props) {
     const router = useRouter();
     const itemId = Number(params.id);
     const item = mockItems.find((i) => i.id === itemId);
