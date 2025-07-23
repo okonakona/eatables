@@ -53,13 +53,16 @@ const AddItem = () => {
                             </label>
                         </div>
                     </div>
-                    <div className=" my-7">
+                    <div className=" my-5">
                         <input type="submit" value="追加"  className="custom-button  w-full"/>
                     </div>
                 </form>
             </main>
-            <footer className="bg-white bottom-0 left-0 fixed min-w-screen h-17 text-center text-[15px]/17">
-                <Link href="/parent">戻る</Link>
+            <footer className="bg-white bottom-0 left-0 fixed min-w-screen h-15 text-[15px]/15">
+                <Link href="/parent" className="flex justify-center gap-5">
+                    <Image src="/backPage.svg" alt="" width={0} height={0} className="w-auto h-auto" />
+                    <p className="font-black">戻る</p>
+                </Link>
             </footer>
 
 

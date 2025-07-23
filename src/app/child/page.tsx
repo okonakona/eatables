@@ -7,8 +7,8 @@ const ParentTop = () => {
     return(
         <section className="m-7">
             <header>
-                <div className="text-center">
-                    <h1>5</h1>
+                <div className="text-center before:content-['レベル']">
+                    <h1 className="">5</h1>
                     <p>次のレベルまで......あと</p>
                 </div>
                 <HeaderList /> 
