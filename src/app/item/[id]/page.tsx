@@ -1,5 +1,9 @@
 import ItemDetail from "./ItemDetail";
 
-export default function Page({ params }: {params}:any) {
+interface PageProps {
+    params: { id: string };
+}
+
+export default function Page({ params }: PageProps) {
     return <ItemDetail id={params.id} />;
 }
