@@ -13,7 +13,7 @@ const mockItems: FoodItem[] = [
 
 
 export default function MainCnt () {
-    const [items,setItems] = useState<FoodItem[]> (mockItems)
+    const [items,_setItems] = useState<FoodItem[]> (mockItems)
     return (
         <main>
             <h2 className="text-center m-2">食べていいもの</h2>
