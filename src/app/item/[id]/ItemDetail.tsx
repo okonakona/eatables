@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useState,useEffect } from "react";
+import { useState} from "react";
 import RatingStars from "@/components/RatingStars";
 import { FoodItem } from "@/app/types/item";
 
@@ -12,6 +12,10 @@ const mockItems: FoodItem[] = [
     { id: 2, name: "チーズ", category: "milk", isPriority: true, message:"冷蔵庫開けてすぐ右にあるよ" },
     { id: 3, name: "りんご", category: "fruit", isPriority: false, message:"レンジ上のバスケットの中" },
     { id: 4, name: "アイス", category: "snack", isPriority: false, message:"冷凍庫の中" },
+    { id: 5, name: "トマト", category: "vegetable", isPriority: false, message:"野菜室開けて右" },
+    { id: 6, name: "チーズ", category: "milk", isPriority: false, message:"冷蔵庫開けてすぐ右にあるよ" },
+    { id: 7, name: "りんご", category: "fruit", isPriority: false, message:"レンジ上のバスケットの中" },
+    { id: 8, name: "アイス", category: "snack", isPriority: false, message:"冷凍庫の中" },
 ];
 
 
@@ -19,22 +23,14 @@ const mockItems: FoodItem[] = [
 export default function ItemDetail({ id }: { id: string }) {
     const router = useRouter();
     const itemId = Number(id);
-    const item = mockItems.find((i) => i.id === itemId);
 
     const [rating, setRating] = useState(0);
 
-    useEffect(() => {
-        if (!item) {
-          router.push('/child/'); // IDが無効なら戻す
-        }
-    }, [item, router]);
+
+    const item = mockItems.find((i) => i.id === itemId);
+    if (!item) return <div>アイテムが見つかりませんでした</div>;
     
-    if (!item) {
-        return <div>アイテムが見つかりませんでした</div>;
-    }
     const imageSrc = `/${item.category}.svg`;
-
-
     const handleSubmit = () => {
         const eatenItems = JSON.parse(localStorage.getItem('eatenItems') || '[]');
         eatenItems.push({ ...item, rating });
@@ -59,7 +55,7 @@ export default function ItemDetail({ id }: { id: string }) {
                 </section>
             </main>
             <footer className="bg-[#D9D9D9] bottom-0 left-0 fixed min-w-screen h-15 text-[15px]/15">
-                <Link href="/parent" className="flex justify-center gap-5">
+                <Link href="/child/" className="flex justify-center gap-5">
                     <Image src="/backPage.svg" alt="" width={0} height={0} className="w-auto h-auto" />
                     <p className="font-black">戻る</p>
                 </Link>

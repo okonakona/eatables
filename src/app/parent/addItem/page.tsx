@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+// import { FaQuestion } from "react-icons/fa6";
 
 const AddItem = () => {
     return (
@@ -13,8 +14,8 @@ const AddItem = () => {
                         <label htmlFor="" className="text-[14px]">1. 食品名( 食べていいもの )</label>
                         <div className="custom-shadow my-2 px-7 py-3">
                                 <input type="text" name="" placeholder="食べていいもの" className="custom-border border-[#E7F0F7] w-full"/>
-                                <button>履歴</button>
-                                <button>テンプレ</button>
+                                {/* <button>履歴</button>
+                                <button>テンプレ</button> */}
                                 <input type="button" value="優先" />
                         </div>
                     </div>
@@ -28,29 +29,32 @@ const AddItem = () => {
                         <label htmlFor=""  className="text-[14px]">3. カテゴリー( 近いものを選択してください )</label>
                         <div className="flex flex-wrap justify-between gap-3 mt-2">
                             <label><input type="radio" name="category" id="" className="sr-only peer" />
-                                <Image  src="/foodMilk.svg" alt="" width={70} height={75} className="my-auto custom-shadow p-2 peer-checked:bg-amber-400" />
+                                <Image  src="/milk.svg" alt="" width={70} height={75} className="my-auto custom-shadow p-2 peer-checked:bg-[#BFCCD6] w-[80px] h-[80px]" />
                             </label>
                             <label><input type="radio" name="category" id="" className="sr-only peer" />
-                                <Image  src="/foodMilk.svg" alt="" width={70} height={75} className="my-auto custom-shadow p-2 peer-checked:bg-amber-400" />
+                                <Image  src="/milk.svg" alt="" width={70} height={75} className="my-auto custom-shadow p-2 peer-checked:bg-[#BFCCD6] w-[80px] h-[80px]" />
                             </label>
                             <label><input type="radio" name="category" id="" className="sr-only peer" />
-                                <Image  src="/foodMilk.svg" alt="" width={70} height={75} className="my-auto custom-shadow p-2 peer-checked:bg-amber-400" />
+                                <Image  src="/milk.svg" alt="" width={70} height={75} className="my-auto custom-shadow p-2 peer-checked:bg-[#BFCCD6] w-[80px] h-[80px]" />
                             </label>
                             <label><input type="radio" name="category" id="" className="sr-only peer" />
-                                <Image  src="/foodMilk.svg" alt="" width={70} height={75} className="my-auto custom-shadow p-2 peer-checked:bg-amber-400" />
+                                <Image  src="/milk.svg" alt="" width={70} height={75} className="my-auto custom-shadow p-2 peer-checked:bg-[#BFCCD6] w-[80px] h-[80px]" />
                             </label>
                             <label><input type="radio" name="category" id="" className="sr-only peer" />
-                                <Image  src="/foodMilk.svg" alt="" width={70} height={75} className="my-auto custom-shadow p-2 peer-checked:bg-amber-400" />
+                                <Image  src="/milk.svg" alt="" width={70} height={75} className="my-auto custom-shadow p-2 peer-checked:bg-[#BFCCD6] w-[80px] h-[80px]" />
                             </label>
                             <label><input type="radio" name="category" id="" className="sr-only peer" />
-                                <Image  src="/foodMilk.svg" alt="" width={70} height={75} className="my-auto custom-shadow p-2 peer-checked:bg-amber-400" />
+                                <Image  src="/milk.svg" alt="" width={70} height={75} className="my-auto custom-shadow p-2 peer-checked:bg-[#BFCCD6] w-[80px] h-[80px]" />
                             </label>
                             <label><input type="radio" name="category" id="" className="sr-only peer" />
-                                <Image  src="/foodMilk.svg" alt="" width={70} height={75} className="my-auto custom-shadow p-2 peer-checked:bg-amber-400" />
+                                <Image  src="/milk.svg" alt="" width={70} height={75} className="my-auto custom-shadow p-2 peer-checked:bg-[#BFCCD6] w-[80px] h-[80px]" />
                             </label>
                             <label><input type="radio" name="category" id="" className="sr-only peer" />
-                                <Image  src="/foodMilk.svg" alt="" width={70} height={75} className="my-auto custom-shadow p-2 peer-checked:bg-amber-400" />
+                                <div className="my-auto custom-shadow p-2 peer-checked:bg-[#BFCCD6] w-[80px] h-[80px]">
+                                {/* <FaQuestion className="m-auto" /> */}
+                                </div>
                             </label>
+
                         </div>
                     </div>
                     <div className=" my-5">
