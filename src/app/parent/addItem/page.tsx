@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { FaQuestion } from "react-icons/fa6";
+// import { FaQuestion } from "react-icons/fa6";
 
 const AddItem = () => {
     return (

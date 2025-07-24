@@ -19,11 +19,12 @@ const mockItems: FoodItem[] = [
 export default function MainCnt () {
     const [eatenIds, setEatenIds] = useState<number[]>([]);
 
-    useEffect(() => {
-        const eaten = JSON.parse(localStorage.getItem('eatenItems') || '[]');
-        setEatenIds(eaten.map((i: any) => i.id));
-    }, []);
+    type EatenItem = { id: number };
 
+    useEffect(() => {
+        const eaten: EatenItem[] = JSON.parse(localStorage.getItem('eatenItems') || '[]');
+        setEatenIds(eaten.map((i) => i.id));
+    }, []);
     const filteredItems = mockItems.filter((item) => !eatenIds.includes(item.id));
     
         return (

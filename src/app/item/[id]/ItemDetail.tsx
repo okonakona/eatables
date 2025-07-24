@@ -24,21 +24,10 @@ export default function ItemDetail({ id }: { id: string }) {
     const router = useRouter();
     const itemId = Number(id);
     const item = mockItems.find((i) => i.id === itemId);
-
-    const [rating, setRating] = useState(0);
-
-    useEffect(() => {
-        if (!item) {
-          router.push('/child/'); // IDが無効なら戻す
-        }
-    }, [item, router]);
-
-    if (!item) {
-        return <div>アイテムが見つかりませんでした</div>;
-    }
+    if (!item) return <div>アイテムが見つかりませんでした</div>;
+    
     const imageSrc = `/${item.category}.svg`;
-
-
+    const [rating, setRating] = useState(0);
     const handleSubmit = () => {
         const eatenItems = JSON.parse(localStorage.getItem('eatenItems') || '[]');
         eatenItems.push({ ...item, rating });
