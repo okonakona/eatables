@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useState,useEffect } from "react";
+import { useState} from "react";
 import RatingStars from "@/components/RatingStars";
 import { FoodItem } from "@/app/types/item";
 
@@ -23,11 +23,14 @@ const mockItems: FoodItem[] = [
 export default function ItemDetail({ id }: { id: string }) {
     const router = useRouter();
     const itemId = Number(id);
+
+    const [rating, setRating] = useState(0);
+
+
     const item = mockItems.find((i) => i.id === itemId);
     if (!item) return <div>アイテムが見つかりませんでした</div>;
     
     const imageSrc = `/${item.category}.svg`;
-    const [rating, setRating] = useState(0);
     const handleSubmit = () => {
         const eatenItems = JSON.parse(localStorage.getItem('eatenItems') || '[]');
         eatenItems.push({ ...item, rating });
