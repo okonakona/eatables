@@ -8,14 +8,14 @@ import RatingStars from "@/components/RatingStars";
 import { FoodItem } from "@/app/types/item";
 
 const mockItems: FoodItem[] = [
-    { id: 1, name: "トマト", category: "vegetable", isPriority: false, message:"野菜室開けて右" },
-    { id: 2, name: "チーズ", category: "milk", isPriority: true, message:"冷蔵庫開けてすぐ右にあるよ" },
-    { id: 3, name: "りんご", category: "fruit", isPriority: false, message:"レンジ上のバスケットの中" },
-    { id: 4, name: "アイス", category: "snack", isPriority: false, message:"冷凍庫の中" },
-    { id: 5, name: "トマト", category: "vegetable", isPriority: false, message:"野菜室開けて右" },
-    { id: 6, name: "チーズ", category: "milk", isPriority: false, message:"冷蔵庫開けてすぐ右にあるよ" },
-    { id: 7, name: "りんご", category: "fruit", isPriority: false, message:"レンジ上のバスケットの中" },
-    { id: 8, name: "アイス", category: "snack", isPriority: false, message:"冷凍庫の中" },
+    { id: 1, name: "トマト", selectedCategory: "vegetable", isPriority: false, message:"野菜室開けて右" },
+    { id: 2, name: "チーズ", selectedCategory: "milk", isPriority: true, message:"冷蔵庫開けてすぐ右にあるよ" },
+    { id: 3, name: "りんご", selectedCategory: "fruit", isPriority: false, message:"レンジ上のバスケットの中" },
+    { id: 4, name: "アイス", selectedCategory: "snack", isPriority: false, message:"冷凍庫の中" },
+    { id: 5, name: "トマト", selectedCategory: "vegetable", isPriority: false, message:"野菜室開けて右" },
+    { id: 6, name: "チーズ", selectedCategory: "milk", isPriority: false, message:"冷蔵庫開けてすぐ右にあるよ" },
+    { id: 7, name: "りんご", selectedCategory: "fruit", isPriority: false, message:"レンジ上のバスケットの中" },
+    { id: 8, name: "アイス", selectedCategory: "snack", isPriority: false, message:"冷凍庫の中" },
 ];
 
 
@@ -30,7 +30,7 @@ export default function ItemDetail({ id }: { id: string }) {
     const item = mockItems.find((i) => i.id === itemId);
     if (!item) return <div>アイテムが見つかりませんでした</div>;
     
-    const imageSrc = `/${item.category}.svg`;
+    const imageSrc = `/${item.selectedCategory}.svg`;
     const handleSubmit = () => {
         const eatenItems = JSON.parse(localStorage.getItem('eatenItems') || '[]');
         eatenItems.push({ ...item, rating });

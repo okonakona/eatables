@@ -18,18 +18,19 @@ const mockItems: FoodItem[] = [
 
 export default function MainCnt () {
     const [eatenIds, setEatenIds] = useState<number[]>([]);
-
-    type EatenItem = { id: number };
-
+    const [userItems, setUserItems] = useState<FoodItem[]>([]); // ← FoodList ではなく FoodItem 
+    
     useEffect(() => {
-        const eaten: EatenItem[] = JSON.parse(localStorage.getItem('eatenItems') || '[]');
+        const eaten: { id: number }[] = JSON.parse(localStorage.getItem('eatenItems') || '[]');
         setEatenIds(eaten.map((i) => i.id));
+
+        const stored: FoodItem[] = JSON.parse(localStorage.getItem('userItems') || '[]');
+        setUserItems(stored);
     }, []);
 
-
-    const storedUserItems: FoodList[] = JSON.parse(localStorage.getItem('userItems') || '[]');
-    const allItems = [...mockItems, ...storedUserItems];
+    const allItems = [...mockItems, ...userItems];
     const filteredItems = allItems.filter((item) => !eatenIds.includes(item.id));
+    
     
         return (
         <main>
