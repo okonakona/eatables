@@ -17,7 +17,13 @@ export default function MainCnt () {
     }, []);
 
     const allItems = [...userItems];
-    const filteredItems = allItems.filter((item) => !eatenIds.includes(item.id));
+    const filteredItems = allItems
+        .filter((item) => !eatenIds.includes(item.id))
+        .sort((a, b) => {
+            if (a.isPriority === b.isPriority) return 0;
+            return a.isPriority ? -1 : 1;
+        })
+
         return (
         <main>
             <h2 className="text-center m-2">食べていいもの</h2>
