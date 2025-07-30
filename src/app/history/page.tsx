@@ -30,7 +30,7 @@ export default function HistoryPage() {
                     {eatenItems.slice().reverse().map((item) => (
                         <li key={item.id} className="custom-shadow p-1 text-center w-30 h-30 pt-4">
                             <div className='h-[80px]'>
-                                <Image  src={`/${item.category}.svg`} alt="" width={70} height={75} className="mx-auto" />
+                                <Image  src={`/${item.selectedCategory}.svg`} alt="" width={70} height={75} className="mx-auto" />
                             </div>
                             <p className="font-bold">{item.name}</p>
                             <div className="flex justify-center items-center">
