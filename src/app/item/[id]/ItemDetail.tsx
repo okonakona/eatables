@@ -3,43 +3,47 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useState} from "react";
+import { useState, useEffect } from "react";
 import RatingStars from "@/components/RatingStars";
 import { FoodItem } from "@/app/types/item";
-
-const mockItems: FoodItem[] = [
-    { id: 1, name: "トマト", selectedCategory: "vegetable", isPriority: false, message:"野菜室開けて右" },
-    { id: 2, name: "チーズ", selectedCategory: "milk", isPriority: true, message:"冷蔵庫開けてすぐ右にあるよ" },
-    { id: 3, name: "りんご", selectedCategory: "fruit", isPriority: false, message:"レンジ上のバスケットの中" },
-    { id: 4, name: "アイス", selectedCategory: "snack", isPriority: false, message:"冷凍庫の中" },
-    { id: 5, name: "トマト", selectedCategory: "vegetable", isPriority: false, message:"野菜室開けて右" },
-    { id: 6, name: "チーズ", selectedCategory: "milk", isPriority: false, message:"冷蔵庫開けてすぐ右にあるよ" },
-    { id: 7, name: "りんご", selectedCategory: "fruit", isPriority: false, message:"レンジ上のバスケットの中" },
-    { id: 8, name: "アイス", selectedCategory: "snack", isPriority: false, message:"冷凍庫の中" },
-];
-
-
 
 export default function ItemDetail({ id }: { id: string }) {
     const router = useRouter();
     const itemId = Number(id);
-
     const [rating, setRating] = useState(0);
+    const [item, setItem] = useState<FoodItem | null>(null);
 
+    // ✅ userItems から該当アイテムを取得
+    useEffect(() => {
+        const storedItems = localStorage.getItem("userItems");
+        if (storedItems) {
+            const items: FoodItem[] = JSON.parse(storedItems);
+            const foundItem = items.find((i) => i.id === itemId);
+            if (foundItem) {
+                setItem(foundItem);
+            }
+        }
+    }, [itemId]);
 
-    const item = mockItems.find((i) => i.id === itemId);
     if (!item) return <div>アイテムが見つかりませんでした</div>;
-    
+
     const imageSrc = `/${item.selectedCategory}.svg`;
+
+    // ✅ 食べた報告＆評価を保存
     const handleSubmit = () => {
         const eatenItems = JSON.parse(localStorage.getItem('eatenItems') || '[]');
         eatenItems.push({ ...item, rating });
         localStorage.setItem('eatenItems', JSON.stringify(eatenItems));
+
+        // userItemsから削除（表示対象から除く）
+        const storedItems = JSON.parse(localStorage.getItem('userItems') || '[]');
+        const updatedItems = storedItems.filter((i: FoodItem) => i.id !== item.id);
+        localStorage.setItem('userItems', JSON.stringify(updatedItems));
+
         router.push('/child/');
     };
 
-    if (!item) return null;
-
+    
     return (
         <div>
             <main className="custom-shadow mx-10 my-15 h-[500px] p-7">
