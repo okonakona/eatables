@@ -11,7 +11,7 @@ type Props = {
 
 
 export default function FoodList ({ item }: Props){
-    const imageSrc = `/${item.category}.svg`;
+    const imageSrc = `/${item.selectedCategory}.svg`;
     return(
         <div>
             <Link href={`/item/${item.id}`}>
