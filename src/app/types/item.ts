@@ -3,7 +3,7 @@
 export type FoodItem = {
     id: number;
     name: string;
-    category: string;
+    selectedCategory: string|null;
     isPriority: boolean;
     message: string;
 }
