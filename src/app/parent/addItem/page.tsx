@@ -49,7 +49,7 @@ const AddItem = () => {
                 <h1 className="">食品を追加</h1>
             </header>
             <main>
-                <form action="/parent/" method="POST" onSubmit={handleAdd}>
+                <form action="/parent/" method="POST">
                     <div>
                         <label htmlFor="" className="text-[14px]">1. 食品名( 食べていいもの )</label>
                         <div className="custom-shadow my-2 px-7 py-3">
@@ -101,7 +101,7 @@ const AddItem = () => {
                         </div>
                     </div>
                     <div className=" my-5">
-                        <button type="submit" className="custom-button  w-full">追加</button>
+                        <button type="button" onClick={handleAdd} className="custom-button  w-full">追加</button>
                     </div>
                 </form>
             </main>
