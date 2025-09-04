@@ -5,7 +5,7 @@ import { FoodItem } from "@/app/types/item";
 import { useState,useEffect } from "react";
 
 export default function MainCnt () {
-    const [eatenIds, setEatenIds] = useState<number[]>([]);
+    const [eatenIds] = useState<number[]>([]);
     const [items, setItems] = useState<FoodItem[]>([]);
     
     useEffect(() => {
