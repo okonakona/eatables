@@ -1,0 +1,7 @@
+FROM php:8.2-apache
+
+# PDO(MySQL) を使うための拡張インストール
+RUN docker-php-ext-install pdo pdo_mysql
+
+# ソースをコンテナのドキュメントルートにコピー
+COPY . /var/www/html/

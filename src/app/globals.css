@@ -40,4 +40,17 @@ body {
   .custom-button {
     @apply bg-[#EC6F7C] rounded-full text-white font-black p-2 text-[20px] text-center;
   }
+
+  progress::-webkit-progress-bar {
+    background-color: transparent; /* バーの背景 */
+  }
+  
+  progress::-webkit-progress-value {
+    @apply bg-gradient-to-r from-[#A5FEF9] to-[#FFB8BF]; /* グラデーション */
+  }
+  
+  progress::-moz-progress-bar {
+    background: linear-gradient(to right, #A5FEF9, #FFB8BF);
+  }
+  
 }

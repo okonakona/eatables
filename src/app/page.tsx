@@ -3,6 +3,12 @@ import HelloBox from "@/components/HelloBox";
 
 
 export default function Home() {
+  const baseURL = "https://click.ecc.ac.jp/ecc/kendo/works/2/DB/index.php";
+  fetch(baseURL)
+  .then(response => response.json())
+  .then(data => {
+    console.log(data);
+    })  
   return (
     <>
       <div className="m-10">
