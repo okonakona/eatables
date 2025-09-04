@@ -6,8 +6,10 @@ import MainCnt from "@/components/MainCnt";
 const ParentTop = () => {
     return (
         <section className="m-7">
-            <header>
-                <h1 className="custom-border my-7">トップページ</h1>
+            <header className="fixed left-0 top-5">
+                <div className="w-screen text-center">
+                    <h1 className="custom-border m-7">トップページ</h1>
+                </div>
                 <HeaderList />
             </header>
             <MainCnt />

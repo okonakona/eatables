@@ -10,17 +10,33 @@ type Props = {
 };
 
 export default function FoodList ({ item }: Props){
-    const imageSrc = `/${item.selectedCategory}.svg`;
+    const imageSrc = `/${item.category}.png`;
     return(
         <div>
             <Link href={`/item/${item.id}`}>
-                <li  className={clsx('custom-shadow mb-4 p-4 flex ',item.isPriority && 'border-l-8 border-red-500')}>
-                    <Image  src={imageSrc} alt="" width={70} height={75} className="my-mx-auto my-auto h-[80px]" />
+            <li
+                className={clsx(
+                    'custom-shadow mb-4 p-2 h-[105px] flex relative rounded-xs',
+                    item.is_priority
+                    ? 'p-[4px] bg-gradient-to-r from-[#EA2E2E] to-[#FFED63]'
+                    : 'border border-gray-300'
+                )}
+                >
+                <div className="flex w-full rounded-xs bg-[#DBE7F1] p-2">
+                    <Image
+                    src={imageSrc}
+                    alt=""
+                    width={75}
+                    height={75}
+                    className="my-auto"
+                    />
                     <section className="mx-3">
-                        <h3 className="font-black text-[21px]">{item.name}</h3>
-                        <p className="text-[12px] text-stone-500">{item.message}</p>
+                    <h3 className="font-black text-[21px]">{item.name}</h3>
+                    <p className="text-[12px] text-stone-500">{item.message}</p>
                     </section>
-                </li>
+                    <p className="absolute right-7 top-1/3 font-bold">{item.exp_points}pt</p>
+                </div>
+            </li>
             </Link>
         </div>
     )

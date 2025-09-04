@@ -12,27 +12,35 @@ export default function HistoryPage() {
     const [eatenItems, setEatenItems] = useState<EatenItem[]>([]);
 
     useEffect(() => {
-        const stored = JSON.parse(localStorage.getItem('eatenItems') || '[]');
-        setEatenItems(stored);
+        fetch("https://click.ecc.ac.jp/ecc/kendo/works/2/DB/eatenFood.php")
+        .then(response => response.json())
+        .then((data: EatenItem[]) => {
+            console.log("DBから取得:", data);
+            setEatenItems(data);
+        })
+        .catch((err) => console.error("データ取得失敗:", err));
+
+        // const stored = JSON.parse(localStorage.getItem('eatenItems') || '[]');
+        // setEatenItems(stored);
     }, []);
 
 
 
     return (
         <div>
-            <main className="p-5">
-            <h1 className="text-2xl font-bold mb-4">食べたもの履歴</h1>
+            <main className="m-3">
+            <h1 className="text-2xl font-bold my-10 text-center">食べたもの履歴</h1>
             <section>
                 {eatenItems.length === 0 ? (
                     <p>まだ何も食べていません。</p>
                 ) : (
-                    <ul className="space-y-3 flex flex-wrap gap-3">
+                    <ul className="space-y-5 flex flex-wrap gap-1">
                     {eatenItems.slice().reverse().map((item) => (
-                        <li key={item.id} className="custom-shadow p-1 text-center w-30 h-30 pt-4">
-                            <div className='h-[80px]'>
-                                <Image  src={`/${item.selectedCategory}.svg`} alt="" width={70} height={75} className="mx-auto my-auto h-[80px]" />
+                        <li key={item.id} className="custom-shadow p-1 text-center w-30 h-30">
+                            <div>
+                                <Image  src={`/${item.category}.png`} alt="" width={75} height={75} className="mx-auto my-auto" />
                             </div>
-                            <p className="font-bold">{item.name}</p>
+                            <p className="font-bold text-[12px]">{item.name}</p>
                             <div className="flex justify-center items-center">
                                 {Array.from({ length: 5 }, (_, i) => (
                                 <FaStar
@@ -42,6 +50,14 @@ export default function HistoryPage() {
                                 />
                                 ))}
                             </div>
+                            <p className='text-[#818181]'>
+                                {new Date(item.created_at).toLocaleString("ja-JP", {
+                                    month: "2-digit",
+                                    day: "2-digit",
+                                    hour: "2-digit",
+                                    minute: "2-digit",
+                                })}
+                            </p>
                         </li>
                     ))}
                     </ul>
