@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import Footer from "@/components/Footer";
+import clsx from "clsx";
 
 const categories = [
     { id: "meat", label: "肉", icon: "/meat.png" },
@@ -92,7 +93,11 @@ const AddItem = () => {
                             onChange={() => setSelectedCategory(category.id)}
                             checked={selectedCategory === category.id}
                             />
-                            <div className="w-[80px] h-[80px] custom-shadow peer-checked:bg-[#BFCCD6] flex items-center justify-center rounded">
+                            <div 
+                            className={clsx(
+                                'w-[80px] h-[80px] custom-shadow flex items-center justify-center rounded',
+                                'peer-checked:bg-gradient-to-r from-[#6EFFEE] to-[#FFFC47]'
+                            )}>                            
                             {category.icon ? (
                                 <Image
                                 src={category.icon}
