@@ -1,9 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import Footer from "@/components/Footer";
 
 const categories = [
     { id: "meat", label: "肉", icon: "/meat.png" },
@@ -114,13 +114,7 @@ const AddItem = () => {
                     </div>
                 </form>
             </main>
-            <footer className="bg-white bottom-0 left-0 fixed min-w-screen h-15 text-[15px]/15">
-                <Link href="/parent" className="flex justify-center gap-5">
-                    <Image src="/backPage.svg" alt="" width={0} height={0} className="w-auto h-auto" />
-                    <p className="font-black">戻る</p>
-                </Link>
-            </footer>
-
+            <Footer />
 
         </section>
     )
