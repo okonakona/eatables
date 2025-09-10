@@ -19,9 +19,6 @@ export default function HistoryPage() {
             setEatenItems(data);
         })
         .catch((err) => console.error("データ取得失敗:", err));
-
-        // const stored = JSON.parse(localStorage.getItem('eatenItems') || '[]');
-        // setEatenItems(stored);
     }, []);
 
 

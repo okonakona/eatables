@@ -17,15 +17,6 @@ export default function MainCnt () {
         })
         .catch((err) => console.error("データ取得失敗:", err));
     }, []);
-
-    // useEffect(() => {
-    //     const eaten: { id: number }[] = JSON.parse(localStorage.getItem('eatenItems') || '[]');
-    //     setEatenIds(eaten.map((i) => i.id));
-
-    //     const stored: FoodItem[] = JSON.parse(localStorage.getItem('userItems') || '[]');
-    //     setUserItems(stored);
-    // }, []);
-
     
     const allItems = [...items];
     const filteredItems = allItems
@@ -34,7 +25,6 @@ export default function MainCnt () {
             if (a.is_priority === b.is_priority) return 0;
             return a.is_priority ? -1 : 1;
         })
-    
     
         return (
         <main>

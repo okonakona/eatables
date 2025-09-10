@@ -5,8 +5,6 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
-// import { FaQuestion } from "react-icons/fa6";
-
 const categories = [
     { id: "meat", label: "肉", icon: "/meat.png" },
     { id: "fish", label: "魚", icon: "/fish.png" },
@@ -15,7 +13,7 @@ const categories = [
     { id: "milk", label: "ミルク", icon: "/milk.png" },
     { id: "juice", label: "飲み物", icon: "/juice.png" },
     { id: "snack", label: "おやつ", icon: "/snack.png" },
-    { id: "other", label: "その他", icon: "/other.png" }, // 他のアイコンなし
+    { id: "other", label: "その他", icon: "/other.png" }, 
 ]
 
 const AddItem = () => {
@@ -56,22 +54,6 @@ const AddItem = () => {
         }
     };
 
-    // const handleAdd = () => {
-    // const newItem: FoodItem = {
-    //     id: Date.now(), // ユニークIDにするため
-    //     name,
-    //     selectedCategory,
-    //     isPriority,
-    //     message,
-    // };
-    // const stored = JSON.parse(localStorage.getItem('userItems') || '[]');
-    // stored.push(newItem);
-    // localStorage.setItem('userItems', JSON.stringify(stored));
-
-    // router.push('/');
-    // };
-    
-
     return (
         <section className="m-7">
             <header>
@@ -84,8 +66,6 @@ const AddItem = () => {
                         <div className="custom-shadow my-2 px-7 py-3">
                                 <input type="text" name="" placeholder="食べていいもの"
                                     value={name} onChange={(e) => setName(e.target.value)} className="custom-border border-[#E7F0F7] w-full"/>
-                                {/* <button>履歴</button>
-                                <button>テンプレ</button> */}
                                 <label className="flex items-center">
                                     <input type="checkbox" name="isPriority"
                                         checked={isPriority} onChange={(e) => setIsPriority(e.target.checked)} className="mr-2"/>

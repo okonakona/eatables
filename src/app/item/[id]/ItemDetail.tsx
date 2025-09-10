@@ -11,8 +11,6 @@ export default function ItemDetail({ id }: { id: string }) {
     const [rating, setRating] = useState(0);
     const [item, setItem] = useState<FoodItem | null>(null);
     
-
-    // ✅ userItems から該当アイテムを取得
     useEffect(() => {
         fetch("https://click.ecc.ac.jp/ecc/kendo/works/2/DB/foodList.php")
         .then((res) => res.json())
@@ -22,14 +20,6 @@ export default function ItemDetail({ id }: { id: string }) {
         })
         .catch((err) => console.error("データ取得失敗:", err));
 
-        // const storedItems = localStorage.getItem("userItems");
-        // if (storedItems) {
-        //     const items: FoodItem[] = JSON.parse(storedItems);
-        //     const foundItem = items.find((i) => i.id === itemId);
-        //     if (foundItem) {
-        //         setItem(foundItem);
-        //     }
-        // }
     }, [itemId]);
 
     if (!item) return <div>アイテムが見つかりませんでした</div>;
@@ -61,20 +51,6 @@ export default function ItemDetail({ id }: { id: string }) {
         }
     };
 
-    // // ✅ 食べた報告＆評価を保存
-    // const handleSubmit = () => {
-    //     const eatenItems = JSON.parse(localStorage.getItem('eatenItems') || '[]');
-    //     eatenItems.push({ ...item, rating });
-    //     localStorage.setItem('eatenItems', JSON.stringify(eatenItems));
-
-    //     // userItemsから削除（表示対象から除く）
-    //     const storedItems = JSON.parse(localStorage.getItem('userItems') || '[]');
-    //     const updatedItems = storedItems.filter((i: FoodItem) => i.id !== item.id);
-    //     localStorage.setItem('userItems', JSON.stringify(updatedItems));
-
-    //     router.push('/child/');
-    // };
-    
     return (
         <div>
             <main className="custom-shadow mx-10 my-15 h-[500px] p-7">
