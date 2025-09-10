@@ -1,10 +1,10 @@
 'use client';
 
 import Image from 'next/image';
-import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { FaStar } from 'react-icons/fa';
 import { FoodItem } from '../types/item';
+import Footer from '@/components/Footer';
 
 type EatenItem = FoodItem & { rating: number };
 
@@ -61,13 +61,7 @@ export default function HistoryPage() {
                 )}
             </section>
             </main>
-            <footer className="bg-[#D9D9D9] bottom-0 left-0 fixed min-w-screen h-15 text-[15px]/15">
-                <Link href="/child/" className="flex justify-center gap-5">
-                    <Image src="/backPage.svg" alt="" width={0} height={0} className="w-auto h-auto" />
-                    <p className="font-black">戻る</p>
-                </Link>
-            </footer>
-
+            <Footer />
         </div>
     );
 }
