@@ -21,6 +21,7 @@ export default function Login() {
 
             if (data.status === "success") {
                 sessionStorage.setItem("user", JSON.stringify(data.user));
+                sessionStorage.setItem("keys", JSON.stringify({ email, password }));
 
                 // role によってリダイレクト
                 if (data.user.role === "mother") {
