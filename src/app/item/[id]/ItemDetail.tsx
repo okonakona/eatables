@@ -44,6 +44,7 @@ export default function ItemDetail({ id }: { id: string }) {
             }
             const user = JSON.parse(userStr);
 
+            // eslint-disable-next-line @typescript-eslint/no-unused-vars
             const beforeLevel = user.level;
 
             const response = await fetch("https://click.ecc.ac.jp/ecc/kendo/works/2/DB/report_eaten.php", {
