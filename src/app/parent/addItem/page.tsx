@@ -82,7 +82,7 @@ const AddItem = () => {
                     </div>
                     <div>
                     <label className="text-[14px] block mb-2">3. カテゴリー（近いものを選択してください）</label>
-                    <div className="flex flex-wrap gap-1.5 items-center justify-center">
+                    <div className="flex flex-wrap gap-1 items-center justify-center">
                         {categories.map((category) => (
                         <label key={category.id} className="cursor-pointer">
                             <input
