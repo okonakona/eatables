@@ -1,36 +1,46 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 簡易仕様書
+## アプリ名
+### EATABLES
+“eatable” 食べても安全で，味に関しての満足度もあるもの + 複数形 "s"
+## コンセプト
+### 子どもが自然に使用し、ママが助かる食材共有・管理アプリ
 
-## Getting Started
+**メインターゲット** : 思春期の男子中高生とワーキングマザー
 
-First, run the development server:
+## 作品の概要
+**冷蔵庫の食べ物を勝手に食べて / 食べられて**
+親子喧嘩になった経験ありませんか？
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+家の中の **"食べていいもの"** だけをリスト化して共有することで、
+毎日の「お腹すいたけど食べていいものがわからない」「なんでそれ食べたの!?」を、もう繰り返さない。
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 「使って得するのは子ども。 でも助かるのはお母さん。」
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+→ 家族みんなが自然とちょっと幸せになる、 新しい家庭内コミュニケーションアプリ
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 対象(推奨)ブラウザ
+Chrome
+レスポンシブ対応が間に合っておらず、
+iPhone 12~14　(ウィンドウ幅390)のものが推奨です
+## 開発環境/言語
+- フロントエンド vsCode/HTML、CSS、TypeScript
+- バックエンド　vsCode/php
+## フレームワーク(ver.含む)
+- Next.js : 15.3.4
+- Tailwind CSS : v4
 
-## Learn More
+## 機能概要(機能一覧)
+### 食品追加 機能
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 消費報告 機能
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+### おやつリクエスト 機能
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## こだわったポイント
+
+## デザイン面でこだわったポイント
+
+## 自己評価
