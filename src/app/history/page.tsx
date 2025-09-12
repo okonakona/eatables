@@ -31,7 +31,7 @@ export default function HistoryPage() {
                 {eatenItems.length === 0 ? (
                     <p>まだ何も食べていません。</p>
                 ) : (
-                    <ul className="space-y-5 flex flex-wrap gap-1">
+                    <ul className="space-y-5 flex flex-wrap gap-0.5">
                     {eatenItems.slice().reverse().map((item) => (
                         <li key={item.id} className="custom-shadow p-1 text-center w-30 h-30">
                             <div>
