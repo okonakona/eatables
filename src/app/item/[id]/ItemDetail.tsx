@@ -94,8 +94,8 @@ export default function ItemDetail({ id }: { id: string }) {
                     <Image src={imageSrc} alt="" width={140} height={145} className="mx-auto" />
                 </h1>
                 <section className="font-black my-5 text-center">
-                    <h2 className="text-[36px]">{item.name}</h2>
-                    <p className="text-[15px] mt-5 h-[40px]">{item.message}</p>
+                    <h2 className="text-[36px] w-[255px]">{item.name}</h2>
+                    <p className="text-[15px] mt-5 h-[80px] w[230px] overflow-y-scroll">{item.message}</p>
                     {role === "child" && (
                         <section className="m-5">
                             <h3>好き度</h3>
