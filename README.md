@@ -159,3 +159,48 @@ iPhone 12~14　(ウィンドウ幅390)のものが推奨です
 <br>今回の経験を通して得た学びを、今後の制作活動に活かしていきたいと思います。
 
 ## テーブル定義(ER図)などの設計ドキュメント
+### eatables_families
+| カラム名         | 型         | 属性       | 説明      | 初期値   |
+| ------------ | --------- | -------- | ------- | ----- |
+| id           | INT       | PK       | 家族ID    | なし    |
+| name         | TEXT      | NOT NULL | 家族名     | なし    |
+| created\_at  | TIMESTAMP |          | 登録日時    | now() |
+| updated\_at  | TIMESTAMP |          | 最終更新日時  | now() |
+| delete\_flag | BOOLEAN   | NOT NULL | 論理削除フラグ | false |
+### eatables_users
+| カラム名         | 型            | 属性               | 説明                          | 初期値   |
+| ------------ | ------------ | ---------------- | --------------------------- | ----- |
+| id           | INT          | PK               | ユーザーID                      | なし    |
+| family\_id   | INT          | FK, NOT NULL     | 家族ID（eatables\_families.id） | なし    |
+| name         | VARCHAR(100) | NOT NULL         | ユーザー名                       | なし    |
+| email        | VARCHAR(255) | UNIQUE, NOT NULL | メールアドレス                     | なし    |
+| password     | VARCHAR(255) | NOT NULL         | パスワード（ハッシュ化）                | なし    |
+| role         | ENUM         | NOT NULL         | 'mother' or 'child'         | なし    |
+| experience   | INT          |                  | 経験値                         | 0     |
+| level        | INT          |                  | レベル                         | 1     |
+| created\_at  | TIMESTAMP    |                  | 登録日時                        | now() |
+| updated\_at  | TIMESTAMP    |                  | 最終更新日時                      | now() |
+| delete\_flag | BOOLEAN      | NOT NULL         | 論理削除フラグ                     | false |
+### eatables_foods
+| カラム名         | 型            | 属性           | 説明                          | 初期値   |
+| ------------ | ------------ | ------------ | --------------------------- | ----- |
+| id           | INT          | PK           | 食材ID                        | なし    |
+| name         | VARCHAR(100) | NOT NULL     | 食材名                         | なし    |
+| category     | ENUM         | NOT NULL     | 食材カテゴリ                      | なし    |
+| exp\_points  | TINYINT      | NOT NULL     | 獲得経験値（1 または 3）              | 1     |
+| is\_priority | BOOLEAN      |              | 優先的に食べるべきかどうか               | false |
+| message      | TEXT         |              | メモや補足メッセージ                  | なし    |
+| family\_id   | INT          | FK, NOT NULL | 家族ID（eatables\_families.id） | なし    |
+| created\_at  | TIMESTAMP    |              | 登録日時                        | now() |
+| updated\_at  | TIMESTAMP    |              | 最終更新日時                      | now() |
+| delete\_flag | BOOLEAN      | NOT NULL     | 論理削除フラグ                     | false |
+### eatables_eaten_history
+| カラム名         | 型         | 属性           | 説明                       | 初期値   |
+| ------------ | --------- | ------------ | ------------------------ | ----- |
+| id           | INT       | PK           | 食べた履歴ID                  | なし    |
+| food\_id     | INT       | FK, NOT NULL | 食材ID（eatables\_foods.id） | なし    |
+| rating       | TINYINT   | CHECK (1〜5)  | 星評価                      | なし    |
+| created\_at  | TIMESTAMP |              | 登録日時                     | now() |
+| updated\_at  | TIMESTAMP |              | 最終更新日時                   | now() |
+| delete\_flag | BOOLEAN   | NOT NULL     | 論理削除フラグ                  | false |
+
